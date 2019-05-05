@@ -1,0 +1,51 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-4">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="myClock">Current Time</span>
+          </div>
+          <!--<input type="text" class="form-control myclock" disabled>-->
+            <span class="text-info myclock"></span>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="estclock"></div>
+    </div>
+    <div class="col-3">
+        <div class="gmtclock"></div>
+    </div>
+
+    <div class="col-12">
+        <h3 class="text-info">HighCharts</h3>
+    </div>
+
+    <div class="col-12">
+        <div class="chart-section" id="chart-section">
+
+        </div>
+    </div>
+
+    <div class="col-12">
+        <h3 class="text-info">DataTables</h3>
+    </div>
+    <div class="col-12">
+        <div class="table-section">
+
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="http://momentjs.com/downloads/moment.min.js"></script>
+<script src="http://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
+<script src="{% static 'js/utils.js' %}"></script>
+{% endblock extra_js %}

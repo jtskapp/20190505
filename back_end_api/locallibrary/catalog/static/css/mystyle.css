@@ -1,0 +1,14 @@
+body { padding-top:20px; }
+
+.container {
+    margin-bottom: 5px!important;
+}
+
+.panel-body
+.btn:not(.btn-block) {
+    width:120px;margin-bottom:10px;
+}
+
+a > .glyphicon {
+    margin-right: 5px!important;
+}

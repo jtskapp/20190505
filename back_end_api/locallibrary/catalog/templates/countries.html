@@ -1,0 +1,43 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h1>Country List</h1>
+
+<h2>Country List content</h2>
+
+<div id="country_section" data-source='{% url 'api-countries' %}'>
+    <ul>
+    </ul>
+</div>
+  {% comment %} <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+  </ul> {% endcomment %}
+
+{% endblock %}
+{% block extra_js %}
+<script>
+    {% comment %} alert('loaded'); {% endcomment %}
+    $(document).ready(function() {
+        var elem = $('#country_section');
+        console.log(elem.attr('data-source'));
+        $.ajax({ 
+             type: "GET",
+             dataType: "json",
+             url: elem.attr('data-source'),
+             success: function(data){        
+                var parent_ul = document.getElementsByTagName("UL")[0];
+                for (var country in data) {
+                    var node = document.createElement("LI");
+                    var textnode = document.createTextNode(data[country]['name']);
+                    node.appendChild(textnode);   
+                    parent_ul.appendChild(node);
+                }
+             }
+         });
+
+    });
+</script>
+{% endblock extra_js %}

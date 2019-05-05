@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+{% comment %} <meta http-equiv="refresh" content="10" > {% endcomment %}
+<head>
+
+  {% block title %}<title>Local Library</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highcharts/7.0.3/css/highcharts.css">
+
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .myclock {
+            background: black;
+            color: #17D4FE;
+            font-family: Orbitron;
+            letter-spacing: 7px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <div class="col-12">
+                <h2 class="display-3">DataTables and HighCharts</h2>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/7.0.3/highcharts.js"></script>
+
+{% block extra_js %}{% endblock extra_js %}
+
+</html>
